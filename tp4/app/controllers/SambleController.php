@@ -1,6 +1,7 @@
 <?php
 namespace controllers;
 
+use models\Inscription;
 use Ubiquity\orm\DAO;
 use Ubiquity\utils\http\URequest;
 use Ubiquity\utils\http\UResponse;
@@ -25,5 +26,12 @@ class SambleController extends ControllerBase{
     UResponse::header("location" ,"/");
 
 
+    }
+    
+    public function do(){
+        $do_var = new Inscription();
+        $do_var->setemail($_POST["email"]);
+        $do_var->setNom($_POST["Nom_ou_pseudo"]);
+        DAO::insert($do_var);
     }
 }
