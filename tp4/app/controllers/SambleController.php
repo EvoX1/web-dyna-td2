@@ -18,14 +18,11 @@ class SambleController extends ControllerBase{
     public function Inscription(){
 
         $this->loadView("SambleController/Inscription.html");
-
     }
         
     public function Inscription2(){
 
     UResponse::header("location" ,"/");
-
-
     }
     
     public function do(){
@@ -33,5 +30,13 @@ class SambleController extends ControllerBase{
         $do_var->setemail($_POST["email"]);
         $do_var->setNom($_POST["Nom_ou_pseudo"]);
         DAO::insert($do_var);
-    }
+      
+    if(DAO::insert($do_var)){
+            echo "ok";
+            UResponse::header("location" ,"/SambleController"); 
+        }
+        else{
+            echo "not good";
+        }
+           }
 }
