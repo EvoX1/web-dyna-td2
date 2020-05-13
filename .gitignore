@@ -2,3 +2,5 @@
 .settings/
 .project
 tp2/vendor/
+tp4/vendor/
+tp4/app/cache/
